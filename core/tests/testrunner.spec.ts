@@ -1,61 +1,53 @@
 import { test, expect } from '@playwright/test';
+import { Chatbot } from '../pages/chatbot';
 
 test('test', async ({ page }) => {
 
-  await page.goto('https://snatchbot.me/');
+  const chatbot = new Chatbot(page);
+  chatbot.goto();
 
-  await page.locator('#sntch_button').click();
+  await chatbot.chatbotBanner.click();
+  await chatbot.fillWithText('AutoTestUser');
+  await chatbot.btnSend.click();
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
-
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('AutoTestUser');
-
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="btn-send-message"]').click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Explain chatbots' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Tell me' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'What else?' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Wow, it does!' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'No' }).click();
-
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Register' }).click();
+  await chatbot.btnClickByText('Yes');
+  await chatbot.btnClickByText('Explain chatbots');
+  await chatbot.btnClickByText('Tell me');
+  await chatbot.btnClickByText('What else?');
+  await chatbot.btnClickByText('Wow, it does!');
+  await chatbot.btnClickByText('No');
+  await chatbot.btnClickByText('Register');
 
   const [page1] = await Promise.all([
     page.waitForEvent('popup'),
     page.frameLocator('iframe[name="mobile"]').getByRole('link', { name: 'here' }).click()
   ]);
+/*
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('quit');
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('quit');
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="btn-send-message"]').click();
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="btn-send-message"]').click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Make a chatbot' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Make a chatbot' }).click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'No' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'No' }).click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'From scratch' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'From scratch' }).click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'No' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'No' }).click();
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('quit');
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('quit');
+  chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="btn-send-message"]').click();
 
-  await page.frameLocator('iframe[name="mobile"]').locator('[data-test="btn-send-message"]').click();
+  chatbot.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
 
-  await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
-
-  await page.locator('#sntch_close').click();
+  chatbot.locator('#sntch_close').click();
 
   await page.locator('#sntch_button').click();
 
@@ -163,5 +155,5 @@ test('test', async ({ page }) => {
   await page.frameLocator('iframe[name="mobile"]').getByRole('button', { name: 'Yes' }).click();
 
   await page.locator('#sntch_close path').click();
-
+*/
 });
