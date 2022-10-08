@@ -36,7 +36,7 @@ export class Chatbot {
   }
 
   async checkLastAnswer(text: string) {
-    expect (this.lastAnswer.innerText(), text);
+    expect(this.lastAnswer).toContainText(text);
   }
 
 }

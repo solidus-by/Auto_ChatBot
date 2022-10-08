@@ -15,6 +15,7 @@ test('TC1. Explain chatbots', async ({ page }) => {
   await chatbot.btnClickByText('Explain chatbots');
   
   await chatbot.checkLastAnswer('Basically, we chatbots are just software applications, like any other application you use on your computer. The important difference is that people interface with us using conversation. Shall I say more about this?');
+  await page.close();
 
 });
 
@@ -37,5 +38,5 @@ test('TC2. Exit chatbot', async ({ page }) => {
   await chatbot.btnClickByText('No');
 
   await chatbot.chatbotFrameCloser.click();
-
+  await page.close();
 });
