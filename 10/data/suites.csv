@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Oct 08 13:41:49 GMT 2022","Sat Oct 08 13:42:18 GMT 2022","28766","webkit","testrunner.spec.ts","","","","TC2. Exit chatbot",""
+"passed","Sat Oct 08 13:40:12 GMT 2022","Sat Oct 08 13:40:39 GMT 2022","26737","firefox","testrunner.spec.ts","","","","TC2. Exit chatbot",""
+"failed","Sat Oct 08 13:41:27 GMT 2022","Sat Oct 08 13:41:49 GMT 2022","21565","webkit","testrunner.spec.ts","","","","TC1. Explain chatbots",""
+"failed","Sat Oct 08 13:38:23 GMT 2022","Sat Oct 08 13:38:39 GMT 2022","15789","chromium","testrunner.spec.ts","","","","TC1. Explain chatbots",""
+"failed","Sat Oct 08 13:39:49 GMT 2022","Sat Oct 08 13:40:12 GMT 2022","22186","firefox","testrunner.spec.ts","","","","TC1. Explain chatbots",""
+"passed","Sat Oct 08 13:38:39 GMT 2022","Sat Oct 08 13:39:02 GMT 2022","22817","chromium","testrunner.spec.ts","","","","TC2. Exit chatbot",""
