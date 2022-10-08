@@ -7,6 +7,7 @@ test('test', async ({ page }) => {
   chatbot.goto();
 
   await chatbot.chatbotBanner.click();
+  /*
   await chatbot.fillWithText('AutoTestUser');
   await chatbot.btnSend.click();
 
@@ -22,7 +23,7 @@ test('test', async ({ page }) => {
     page.waitForEvent('popup'),
     page.frameLocator('iframe[name="mobile"]').getByRole('link', { name: 'here' }).click()
   ]);
-/*
+
   chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').click();
 
   chatbot.frameLocator('iframe[name="mobile"]').locator('[data-test="input-chat"]').fill('quit');
