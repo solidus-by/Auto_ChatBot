@@ -27,16 +27,18 @@ export class Chatbot {
   }
 
   async btnClickByText(text: string) {
+    expect (this.chatbotFrame.getByRole('button', { name: text }), 'The Button "'+text+'" is not available').toBeVisible();
     await this.chatbotFrame.getByRole('button', { name: text }).click();
   }
 
   async fillWithText(text: string) {
+    expect (this.chatbotInput, 'The Input Field is not available!').toBeEnabled();
     await this.chatbotInput.click();
     await this.chatbotInput.fill(text);
   }
 
   async checkLastAnswer(text: string) {
-    expect(this.lastAnswer).toContainText(text);
+    expect(this.lastAnswer).toHaveText(text);
   }
 
 }
