@@ -3,11 +3,12 @@ import { expect, FrameLocator, Locator, Page } from '@playwright/test';
 
 export class Chatbot {
   readonly page:            Page;
-  readonly chatbotBanner:         Locator;
+  readonly chatbotBanner:   Locator;
   readonly chatbotFrame:    FrameLocator;
   readonly chatbotInput:    Locator;
   readonly btnSend:         Locator;
   readonly lastAnswer:      Locator;
+  readonly chatbotFrameCloser: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,6 +18,7 @@ export class Chatbot {
     this.chatbotInput = this.chatbotFrame.locator('[data-test="input-chat"]');
     this.btnSend = this.chatbotFrame.locator('[data-test="btn-send-message"]');
     this.lastAnswer = this.chatbotFrame.locator('div.message__wrapper > div > div > p').last();
+    this.chatbotFrameCloser = this.page.locator('#sntch_close path');
   
   }
 
